@@ -1,22 +1,34 @@
-import PropTypes from 'prop-types'
+import { Component } from 'react'
 
 function App() {
-  const dom = <h1 className="foo">Hi!</h1>
   return (
-    <div>
-      <User name={"Taro"} age={10} />
-      <User name={"Ken"} age={12} />
-      <User name={"Kenta"} age={20} />
-    </div>
+    <Counter></Counter>
   )
 }
 
-const User = (props) => {
-  return <div>Hi! {props.name}, {props.age}</div>
-}
-User.propTypes = {
-  name: PropTypes.string,
-  age: PropTypes.number.isRequired
+class Counter extends Component {
+  constructor(props) {
+    super(props)
+    console.log(this.state)
+    this.state = { count: 0}
+  }
+
+  hundlePlusButton = () => {
+    this.setState({ count: this.state.count + 1})
+  }
+  hundleMinusButton = () => {
+    this.setState({ count: this.state.count - 1})
+  }
+  render() {
+    console.log(this.state)
+    return (
+      <>
+        <div>count: {this.state.count}</div>
+        <button onClick={this.hundlePlusButton}>+1</button>
+        <button onClick={this.hundleMinusButton}>-1</button>
+      </>
+    )
+  }
 }
 
 export default App;
