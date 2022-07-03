@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0"
+  }
+}
